@@ -1,0 +1,217 @@
+.background {
+    background-image: url('./assets/Paquete\ Atomic/Mask Group 1@2x.png');
+}
+
+.astronauta {
+    max-width: 35%;
+    margin-top: 8%;
+    margin-left:8%;
+}
+
+.main {
+    display: flex;
+}
+
+.textContainer {
+    margin-top: 25%;
+    font-size: 60px;
+    margin-left: 10%;
+    text-align: left;
+}
+
+.blanco {
+    color: white;
+}
+
+.naranja {
+    color: #FA4D09;
+}
+.btn1 {
+    margin-top: 0px;
+    margin-left: 25%;
+    font-size: medium;
+    color: mediumblue;
+    border-radius: 50px;
+    padding: 10px 30px 10px 30px;
+    font-weight: bold;
+}
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #FFF;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+  }
+  
+  .scroll-down:before {
+      position: absolute;
+      top: calc(50% - 8px);
+      left: calc(50% - 6px);
+      transform: rotate(-45deg);
+      display: block;
+      width: 12px;
+      height: 12px;
+      content: "";
+      border: 2px solid white;
+      border-width: 0px 0 2px 2px;
+  }
+
+  section {
+
+    width: 100%;
+    display: table;
+  }
+
+  .scrollP{
+      margin-left: 46%;
+      margin-top: 4%;
+      color: white;
+  }
+
+  .second {
+      margin-top: 0px;
+      margin-bottom: 5%;
+  }
+
+  .cardContainer{
+      display: flex;           
+  }
+
+  .card1{
+      margin-left: 17%;
+      margin-top: 3%;
+      height: 100%;      
+  }
+
+  .card2 {
+      background-color: #FA4D09;
+      color: white;
+  }
+
+  .card3 {
+    margin-top: 3%;
+    height: 100%;   
+  }
+
+  .mediumCardBg {
+      background: #FA4D09;
+  }
+
+  .cardNegrita{
+      font-weight: bold;
+  }
+
+  .third {
+    margin-top: 5%;    
+  }
+
+  .btn2 {
+    margin-top: 2%;    
+    font-size: medium;
+    color: mediumblue;
+    border-radius: 50px;
+    padding: 10px 30px 10px 30px;
+    font-weight: bold;
+    }
+
+    .fourth {
+        margin-top: 5%;
+        background-color: #01609C;
+    }
+
+    .imgsContainer{
+        display: flex;        
+    }
+
+    .sub1{
+        margin-left: 10%;
+    }
+
+    .subItem {
+        margin-left: 6%;
+    }
+
+.customUl {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;    
+}
+
+.flex {
+    display: flex;
+    align-items: flex-start;  
+}
+
+.imgpq{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.mt5 {
+    margin-top: 12%;
+}
+
+.mt10 {
+    margin-top: 29%;
+}
+
+.five {
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;    
+}
+
+.cent {
+    text-align: center;
+}
+
+.fontBig {    
+    font-size: x-large;    
+}
+
+.bgcblue{
+    background-color: #01609C;
+    padding-bottom: 3%;
+}
+
+.footerCustom{
+    background-color: black;
+}
+
+.footerBody{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+}
+
+.footerRigth {
+    margin-left: 35%;
+}
+
+.innerMarg {
+    margin-left: 50px;
+}
+
+.innerMarg2 {
+    margin-left: 30px;
+}
+
+.btn2 {
+    margin-top: 2%;    
+    font-size: medium;
+    color: mediumblue;
+    border-radius: 50px;
+    padding: 10px 30px 10px 30px;
+    font-weight: bold;
+    }

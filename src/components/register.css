@@ -1,0 +1,80 @@
+.background {
+    background-image: url('../assets/Paquete Atomic/Mask Group 1.png');
+}
+
+.progress{
+    margin-top: 5px;
+}
+
+.itemOne{
+    margin-top:5%;
+    margin-left: 3%;
+    margin-right: 1%;
+    width: 70%;    
+}
+
+.itemTwo {
+    margin-top:15%;
+    max-width: 90%;
+}
+
+.contenido {
+    margin-top: 5%;
+}
+
+.marL5 {
+    margin-left: 5%;
+}
+
+.marL2{
+    margin-left: 2%;
+}
+
+.marL20{
+    margin-left: 20%;
+}
+
+
+.marT5 {
+    margin-top: 5%;
+}
+
+.rigthA {
+    position: absolute;    
+    right: 0;
+    margin-right: 35%;
+}
+
+.btnO{
+    background-color: #FA4D09;
+    width: 150px;
+    border-radius: 50px;
+    color: white;
+}
+
+.inpLimit {
+    max-width: 45%;
+    background-image: url('../assets/Paquete Atomic/Group 4015.png');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.inpLimitClear {
+    max-width: 50%;
+}
+
+.transparent{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.mt2 {
+    margin-top: 2%;
+}
+
+.form-check input:checked {
+    background-color: #FA4D09;
+  }
