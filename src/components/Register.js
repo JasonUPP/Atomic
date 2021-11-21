@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useLoading } from '../hooks/useLoading';
 import { useStep } from '../hooks/useStep';
+import { Screen } from '../screens/Screen';
 import { Contenido } from './Contenido';
+import { Footer } from './Footer';
 import { ImageRight } from './ImageRight';
 import { ProgressBar } from './ProgressBar';
 import './register.css'
@@ -15,6 +18,7 @@ const checked = imagenes(`./Group 4016.png`).default;
 
 export const Register = () => {
     const {state, addStep, subtractStep} = useStep();
+    const [loading, loadOn, loadOff, tipo] = useLoading();
 
     const [url, seturl] = useState('');
     const [percent, setpercent] = useState(20);
@@ -79,23 +83,39 @@ export const Register = () => {
 
 
     return (
-        <div className="background"> 
-            <br/>
-            <div className="flex">
-                <div className="itemOne" >
-
-                    { (state > 0 && state <5) &&
-                    <ProgressBar percent= {percent}
-                        img1={img1} img2 = {img2}  img3= {img3} img4 = {img4}  
-                    />
-                    }
-                    <Contenido step = {state} subtractStep = {subtractStep} images = {imagenes} addStep={addStep} />
-                    
-                </div>
+        <div className="background">
+            {
+                loading
+                ?
+                <Screen imagenes = {imagenes} tipo = {tipo} loadOff={loadOff} />
+                :
                 <div>
-                    <ImageRight url ={url} />
-                </div>             
-            </div>            
+                    <br/>
+                    <div className="flex mb1">
+                        <div className="itemOne" >
+
+                            { (state > 0 && state <5) &&
+                            <ProgressBar percent= {percent}
+                                img1={img1} img2 = {img2}  img3= {img3} img4 = {img4}  
+                            />
+                            }
+                            <Contenido 
+                                step = {state} 
+                                subtractStep = {subtractStep} 
+                                images = {imagenes} 
+                                addStep={addStep} 
+                                loadOn = {loadOn}
+                                loadOff = {loadOff}
+                            />
+                            
+                        </div>
+                        <div>
+                            <ImageRight url ={url} />
+                        </div>             
+                    </div>   
+                    <Footer imagenes = {imagenes} />   
+                </div>                
+            }      
         </div>
     )
 }

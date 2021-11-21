@@ -3,7 +3,7 @@ import { useButton } from '../../hooks/useButton';
 import { useForm } from '../../hooks/useForm';
 import { Title } from '../content/Title'
 
-export const StepTwo = ({subtractStep, images, addStep, setnumero}) => {
+export const StepTwo = ({subtractStep, images, addStep, setnumero, edit, loadOn, loadOff}) => {
 
     const [formValues, handleInput] = useForm({
         numero: '',
@@ -14,14 +14,18 @@ export const StepTwo = ({subtractStep, images, addStep, setnumero}) => {
     const {numero} = formValues;
 
     useEffect(() => {
-        setnumero(numero);
+        setnumero(numero);                                
         if(numero.length === 10 ) activateButton();
         else disableButton();
-    }, [numero])
+    }, [numero]);
 
     const onSubmit = (e) => {
-        e.preventDefault();
-        addStep();
+        e.preventDefault();  
+        localStorage.setItem('numero', numero);  
+        localStorage.setItem('type', 1);  
+        loadOn();
+        setTimeout(loadOff, 2000);
+        addStep();        
     }
 
     return (
@@ -29,11 +33,11 @@ export const StepTwo = ({subtractStep, images, addStep, setnumero}) => {
             <button type="button" className="transparent blanco" onClick ={subtractStep}>{'<'} Regresar</button>
             <Title
                 url = {images(`./Group 4023.png`).default} 
-                whiteT = {'VALIDA TU '}
+                whiteT = {edit ? 'EDITA TU ' : 'VALIDA TU '}
                 orangeT = {'CELULAR'}
-            />
+            />            
 
-            <h4 className="blanco marT5">
+            <h4 className="blanco mt2">
                 Necesitamos validar tu número para continuar               
             </h4>      
             <h5 className="blanco">

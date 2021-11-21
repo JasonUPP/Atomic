@@ -3,7 +3,7 @@ import { useButton } from '../../hooks/useButton';
 import { useForm } from '../../hooks/useForm';
 import { Title } from '../content/Title'
 
-export const StepThree = ({subtractStep, images, addStep, numero}) => {
+export const StepThree = ({subtractStep, images, addStep, numero, setedit, loadOn, loadOff}) => {
     
     const [formValues, handleInput] = useForm({
         codigo: '',
@@ -14,28 +14,55 @@ export const StepThree = ({subtractStep, images, addStep, numero}) => {
     const {codigo} = formValues;
 
     useEffect(() => {
+        setedit(false);
+    }, []);
+
+    useEffect(() => {
         if(codigo.length > 0 ) activateButton();
         else disableButton();
     }, [codigo])
 
     const onSubmit = (e) => {
         e.preventDefault();
+        localStorage.setItem('type', 2);  
+        loadOn();
+        setTimeout(loadOff, 2000);
         addStep();
+    }
+
+    const handleEdit = () => {
+        localStorage.setItem('numero', null);
+        setedit(true);
+        subtractStep();
+    }
+
+    const handleBack = () => {
+        localStorage.setItem('numero', null);        
+        subtractStep();
+    }
+
+    const handleReenvio = () => {
+        localStorage.setItem('type', 3);
+        loadOn();
+        setTimeout(loadOff, 2000);
     }
 
     return (
         <div className="mt2">
-            <button type="button" className="transparent blanco" onClick ={subtractStep}>{'<'} Regresar</button>
+            <button type="button" className="transparent blanco" onClick ={handleBack}>{'<'} Regresar</button>
             <Title
                 url = {images(`./Group 4024.png`).default} 
                 whiteT = {'CÓDIGO DE '}
                 orangeT = {'VERIFICACIÓN'}
             />
 
-            <h4 className="blanco marT5">
+            <h4 className="blanco mt2">
                 Te enviamos un SMS al número: <br/>
                 {`+52 ${numero.substring(0,2)} ${numero.substring(2, 6)} ${numero.substring(6, 10)}`}
-                <img src={images(`./Group 4026.png`).default} alt='' className="marL5" />
+                <button className="transparent marL5" onClick={handleEdit}>
+                    <img src={images(`./Group 4026.png`).default} alt='' />                    
+                </button>
+
             </h4>
 
             <h6 className="blanco">
@@ -56,7 +83,7 @@ export const StepThree = ({subtractStep, images, addStep, numero}) => {
                 <br/>
                 <h7 className="blanco flex">
                     ¿No recibiste el código? 
-                    <button type="button" className="transparent blanco">
+                    <button type="button" className="transparent blanco" onClick={handleReenvio}>
                         <h6>Reenviar código</h6>
                     </button>          
                 </h7>   
