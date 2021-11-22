@@ -11,12 +11,12 @@ const imagenes = require.context('./assets/Paquete Atomic' , true);
 
 export const App = () => {
   return (
-    <div className="background">
-      <Main  imagenes = {imagenes} />
-      <Cards imagenes = {imagenes} /> 
-      <Team imagenes = {imagenes} />
-      <BlueComp  imagenes = {imagenes} />
-      <Footer imagenes = {imagenes} />
-    </div>
+      <div className="background">     
+        <Main  imagenes = {imagenes} />
+        <Cards imagenes = {imagenes} /> 
+        <Team imagenes = {imagenes} />
+        <BlueComp  imagenes = {imagenes} />
+        <Footer imagenes = {imagenes} />
+      </div>    
   );
 }
