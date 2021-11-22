@@ -45,9 +45,10 @@ export const StepOne = ({images, addStep}) => {
 
             <form onSubmit = {onSubmit} >
                 <div className="form-group">
-                    <label for="nombre" className="blanco">Nombre {'(s)'}</label>
+                    <label htmlFor="nombre" className="blanco">Nombre {'(s)'}</label>
                     <input 
-                        type="text" className="form-control inpLimit" 
+                        type="text" 
+                        className= {error ? 'form-control inpLimitE':"form-control inpLimit" } 
                         id="nombre" name="nombre"
                         autoComplete="off"
                         value= {nombre} onChange = {handleInput} 
@@ -58,7 +59,7 @@ export const StepOne = ({images, addStep}) => {
                     }
                 </div>
                 <div className="form-group">
-                    <label for="apellidos" className="blanco">Apellidos</label>
+                    <label htmlFor="apellidos" className="blanco">Apellidos</label>
                     <input 
                         type="text" className="form-control inpLimit" 
                         name="apellidos" autoComplete="off"
@@ -68,7 +69,7 @@ export const StepOne = ({images, addStep}) => {
                 </div> 
                 <br/>
                 <div className="rigthA">
-                    <button type="submit" class="btn btnO" disabled={disabled}>Enviar</button>
+                    <button type="submit" className="btn btnO" disabled={disabled}>Enviar</button>
                 </div>
             
             </form>           

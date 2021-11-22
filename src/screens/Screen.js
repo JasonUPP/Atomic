@@ -19,13 +19,13 @@ export const Screen = ({imagenes, tipo, loadOff}) => {
             break;
         case '3':
             txt = txt3;
-            url = imagenes(`./Group 4029@2x.png`).default;
+            url = imagenes(`./Group 4045.png`).default;
         break;
     
         default:
             break;
     }   
-    debugger; 
+        
     return (
         <div>
             {
@@ -35,7 +35,7 @@ export const Screen = ({imagenes, tipo, loadOff}) => {
                 :
                 <div className="mainScreen">
                     <center className="itemsCentered">
-                        <img src={url} />
+                        <img src={url} alt='' />
                         <h6 className="blanco">
                             {txt}           
                         </h6>                           

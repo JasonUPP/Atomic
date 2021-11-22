@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useButton } from '../../hooks/useButton';
 import { useForm } from '../../hooks/useForm';
+import { generarBody, getCodigo } from '../../petition/manageCode';
 import { Title } from '../content/Title'
 
 export const StepThree = ({subtractStep, images, addStep, numero, setedit, loadOn, loadOff}) => {
@@ -8,6 +9,7 @@ export const StepThree = ({subtractStep, images, addStep, numero, setedit, loadO
     const [formValues, handleInput] = useForm({
         codigo: '',
     });
+    const [diferente, setDiferente] = useState(false);
 
     const [disabled, activateButton, disableButton] = useButton();
 
@@ -18,16 +20,24 @@ export const StepThree = ({subtractStep, images, addStep, numero, setedit, loadO
     }, []);
 
     useEffect(() => {
-        if(codigo.length > 0 ) activateButton();
+        if(codigo.length === 5 ) activateButton();
         else disableButton();
     }, [codigo])
 
     const onSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('type', 2);  
-        loadOn();
-        setTimeout(loadOff, 2000);
-        addStep();
+        debugger;
+        const c = getCodigo();        
+        if(c === codigo){
+            localStorage.setItem('type', 2);  
+            loadOn();
+            setTimeout(loadOff, 2000);
+            addStep();     
+        }
+        else{
+            setDiferente(true);
+        }
+
     }
 
     const handleEdit = () => {
@@ -44,7 +54,23 @@ export const StepThree = ({subtractStep, images, addStep, numero, setedit, loadO
     const handleReenvio = () => {
         localStorage.setItem('type', 3);
         loadOn();
-        setTimeout(loadOff, 2000);
+        try{
+            fetch('/api/messages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: generarBody({numero})
+            })
+            .then(res => res.json())
+            .then(() => {
+                loadOff();
+                localStorage.setItem('type', 1);
+                loadOn();
+                setTimeout(loadOff, 2000);
+            });
+        }
+        catch(e){
+            console.log(e);
+        }     
     }
 
     return (
@@ -72,23 +98,31 @@ export const StepThree = ({subtractStep, images, addStep, numero, setedit, loadO
             <br/>
             <form onSubmit = {onSubmit} >
                 <div className="form-group">
-                    <label for="codigo" className="blanco">Código de verificación</label>
+                    <label htmlFor="codigo" className="blanco">Código de verificación</label>
                     <input 
-                        type="text" className="form-control inpLimitClear" 
+                        type="text" 
+                        className= {diferente ? 'form-control codeE': "form-control inpLimitClear" }
                         id="codigo" name="codigo"
                         autoComplete="off"
                         value= {codigo} onChange = {handleInput} 
-                    />                    
+                        onKeyPress = {(e)=>{if (!/[0-9]/.test(e.key))e.preventDefault()}}
+                    />
+                    {
+                        diferente &&
+                        <small id="emailHelp" className="naranja">El código no coincide</small>
+                    }                 
                 </div>
                 <br/>
-                <h7 className="blanco flex">
+                <h6 className="blanco flex">
                     ¿No recibiste el código? 
                     <button type="button" className="transparent blanco" onClick={handleReenvio}>
                         <h6>Reenviar código</h6>
                     </button>          
-                </h7>   
+                </h6>   
                 <div className="rigthA">
-                    <button type="submit" disabled={disabled} className="btn btnO" >Validar código</button>
+                    <button type="submit" disabled={disabled} className= "btn btnO" >
+                        Validar código
+                    </button>
                 </div>            
             </form> 
 

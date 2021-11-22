@@ -41,12 +41,14 @@ export const StepFour = ({subtractStep, images, addStep, loadOn}) => {
                 </h4>
 
                 <button type="button" className="transparent mt2" onClick={handleSeeTerms}>
-                    <h6><a href="#" className="blanco">Consulta los Términos y Condiciones</a></h6>
+                    <h6 className="blanco">
+                        <u>Consulta los Términos y Condiciones</u>
+                    </h6>
                 </button>    
 
-                <div class="form-check">
-                    <input class="form-check-input myCheck" type="checkbox" value={check} onChange={checkChange} id="flexCheckDefault" />
-                    <label class="form-check-label blanco" for="flexCheckDefault">
+                <div className="form-check">
+                    <input className="form-check-input myCheck" type="checkbox" value={check} onChange={checkChange} id="flexCheckDefault" />
+                    <label className="form-check-label blanco" htmlFor="flexCheckDefault">
                         Acepto los Términos y Condiciones
                     </label>
                 </div>
@@ -54,7 +56,7 @@ export const StepFour = ({subtractStep, images, addStep, loadOn}) => {
                 <div className="rigthA">
                         <button type="submit" disabled={disabled} className="btn btnO" onClick={handleClic} >
                             Enviar
-                            <img src = {images(`./ic_lock_24px - gray.png`).default} className="marL20" />
+                            <img alt='' src = {images(`./ic_lock_24px - gray.png`).default} className="marL20" />
                         </button>
                     </div>                  
             </div>

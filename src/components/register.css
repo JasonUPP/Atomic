@@ -26,6 +26,10 @@
     margin-left: 5%;
 }
 
+.marL10 {
+    margin-left: 10%;
+}
+
 .marL2{
     margin-left: 2%;
 }
@@ -54,10 +58,19 @@
 
 .inpLimit {
     max-width: 45%;
-    background-image: url('../assets/Paquete Atomic/Group 4015.png');
+    background-image: url('../assets/Paquete Atomic/Group 4044.png');
     background-repeat: no-repeat;
     background-position: right;
 }
+
+.inpLimitE{
+    max-width: 45%;
+    border-color: red;
+    background-image: url('../assets/Paquete Atomic/Group 4044.png');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
 .inpLimitClear {
     max-width: 50%;
 }
@@ -115,11 +128,20 @@
 
 .cuadCenter {
     position: relative;
-    top: 15%;
+    top: 7%;
 }
 
 .close {
     position: absolute;    
     right: 0;
     margin-right: 0;
+}
+
+.cardtw {
+    border-color: #FA4D09;
+}
+
+.codeE {
+    border-color: red;
+    max-width: 50%;
 }

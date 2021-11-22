@@ -1,5 +1,6 @@
 .background {
     background-image: url('./assets/Paquete\ Atomic/Mask Group 1@2x.png');
+    background-position: top;
 }
 
 .astronauta {
@@ -9,6 +10,8 @@
 }
 
 .main {
+    padding-top: 0;
+    margin-top: 0;
     display: flex;
 }
 
@@ -80,7 +83,7 @@
 
   .second {
       margin-top: 0px;
-      margin-bottom: 5%;
+      margin-bottom: 1%;
   }
 
   .cardContainer{
@@ -105,6 +108,9 @@
 
   .mediumCardBg {
       background: #FA4D09;
+      max-height: 60%;
+      margin-bottom: 0;
+      padding-bottom: 0;
   }
 
   .cardNegrita{
