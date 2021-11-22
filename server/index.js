@@ -1,13 +1,9 @@
-//para iniciar nodemon index.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-const account_Sid = 'AC72c67fc1617d55b54a15c4e940ef7bb0';
-const authToken = '3fc55ba54822d941e44e8a25ccd385c3';
-const from = '+18507896228'
-
+const {TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER } = process.env;
 const twilio = require('twilio');
-const client = new twilio(account_Sid, authToken)
+const client = new twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -21,7 +17,7 @@ app.post('/api/messages', (req, res) => {
   res.header('Content-Type', 'application/json');
   client.messages
   .create({
-    from,
+    from: TWILIO_PHONE_NUMBER,
     to: req.body.to,
     body: req.body.body,
   })
